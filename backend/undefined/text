@@ -1,0 +1,8 @@
+backend/
+├── models/
+│   ├── user.model.js
+│   └── exercise.model.js
+├── routes/
+│   ├── users.js
+│   └── exercises.js
+└── server.js
