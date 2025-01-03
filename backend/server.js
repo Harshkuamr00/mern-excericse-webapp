@@ -14,18 +14,23 @@ app.use(express.json());
 
 // this is what we want to in atlas database and uri does store our database
 const uri = process.env.ATLAS_URI;
-const connection = mongoose.connection;
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });// thiese are the flags here working with real time update and changes you need to write it when you code
-connection.once('open', () => {
-    console.log("MongoDB database connected");
+
+mongoose.connect(uri, {
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 50000
+})
+.then(() => console.log("MongoDB connected successfully"))
+.catch((err) => {
+    console.error("MongoDB connection error:", err);
+    process.exit(1);
 });
 
 // now we are importing our models
-const exerciseRouter = require('./routes/exercises');
+const exerciseRouter = require('./routes/exercise');
 const userRouter = require('./routes/users');
 
 // now we are using these routes
-app.use('/exercises', exerciseRouter);
+app.use('/exercise', exerciseRouter);
 app.use('/users', userRouter);
 
 
