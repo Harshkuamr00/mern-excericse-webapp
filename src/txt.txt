@@ -1,0 +1,14 @@
+b3-exercise-tracker/
+├── node_modules/
+├── public/
+│   ├── placeholder.svg (Add your image here)
+│   └── ...
+├── src/
+│   ├── components/
+│   │   └── Home.jsx
+│   ├── index.css
+│   ├── App.js
+│   └── index.js
+├── package.json
+├── tailwind.config.js
+└── postcss.config.js
