@@ -26,7 +26,7 @@ const userSchema = new Schema({
         required: true,
         minlength: 8,
         select: false
-    }
+    },
 }, {
     timestamps: true
 });
