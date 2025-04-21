@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
+const User = require('./user.model');
 
 const  Schema =  mongoose.Schema;
 
 const exerciseSchema = new Schema({
-    username: {
-        type: String,
-        required: true
-    },
     description: {
         type: String,
         required: true
@@ -18,6 +15,9 @@ const exerciseSchema = new Schema({
     date: {
         type: Date,
         default: Date.now 
+    },
+    username: {
+        type: mongoose.Schema.ObjectId, ref: User
     }
 }, {
     timestamps: true  // this is for time when it was modified and create or deleted
